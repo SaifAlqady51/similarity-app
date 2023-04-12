@@ -15,7 +15,8 @@ const paragraphVariants = cva(
             size: 'default'
         }
     }
-)
+)  
+
 
 interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement>,
  VariantProps<typeof paragraphVariants> {}

@@ -4,12 +4,13 @@ import { HTMLAttributes, forwardRef } from "react";
 
 
 const LargeHeadingVariants = cva(
-    'max-w-prose text-slate-700 dark:text-slate-300 mb-2 text-center',
+    'text-black dark:text-white text-center lg:text-left font-extrabold leading-tight tracking-tight',
     {
         variants:{
             size:{
-                default:'text-base sm:text-lg',
-                sm:'text-sm sm:text-base'
+                default:'text-4xl md:text-5xl lg:text-6xl',
+                lg:'text-5xl md:text-6xl lg:text-7xl',
+                sm:'text-2xl md:text-3xl lg:text-4xl'
             }
         },
         defaultVariants:{

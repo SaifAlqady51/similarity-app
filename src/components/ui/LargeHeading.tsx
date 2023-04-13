@@ -1,9 +1,9 @@
-import cn from "@/app/lib/utils";
+import cn from "@/lib/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { HTMLAttributes, forwardRef } from "react";
 
 
-const LargeHeadingVariants = cva(
+const largeHeadingVariants = cva(
     'text-black dark:text-white text-center lg:text-left font-extrabold leading-tight tracking-tight',
     {
         variants:{
@@ -19,13 +19,13 @@ const LargeHeadingVariants = cva(
     }
 )
 
-interface LargeHeadingProps extends HTMLAttributes<HTMLHeadingElement>, VariantProps<typeof LargeHeadingVariants>{}
+interface LargeHeadingProps extends HTMLAttributes<HTMLHeadingElement>, VariantProps<typeof largeHeadingVariants>{}
 
 
 const LargeHeading = forwardRef<HTMLHeadElement,LargeHeadingProps>(({
     className, size, children, ...props
     },ref) => {
-    return <header ref={ref} {...props} className={cn(LargeHeadingVariants({size,className}))}></header>
+    return <header ref={ref} {...props} className={cn(largeHeadingVariants({size,className}))}></header>
 })
 
 LargeHeading.displayName = 'LargeHeading'

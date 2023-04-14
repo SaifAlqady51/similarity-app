@@ -1,12 +1,15 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
-import Paragraph from '../components/ui/Paragraph'
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "./page.module.css";
+import Paragraph from "../components/ui/Paragraph";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main> <Paragraph size='default' /></main>
-  )
+    <main>
+      {" "}
+      <Paragraph size="default" />
+    </main>
+  );
 }

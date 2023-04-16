@@ -4,6 +4,7 @@ import cn from "@/lib/utils";
 import Providers from "@/components/Providers";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/ui/Toast";
+import LargeHeading from "@/components/ui/LargeHeading";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -25,8 +26,11 @@ export default function RootLayout({
           <Navbar />
         </Providers>
 
+ 
+
         {/* Allow for more height for mobile devices */}
         <div className="h-40 md:hidden"></div>
+
       </body>
     </html>
   );

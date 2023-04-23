@@ -23,7 +23,7 @@ const Code: FC<CodeProps> = ({
 }) => {
   const { theme: applicationTheme } = useTheme()
   const [text, setText] = useState<string>(animated ? '' : code)
-
+  // slice the code text and animate it smoothly on documentation page
   useEffect(() => {
     if (show && animated) {
       let i = 0
@@ -34,16 +34,15 @@ const Code: FC<CodeProps> = ({
           if (i > code.length) {
             clearInterval(intervalId)
           }
-        }, 15)
+        }, 20)
 
         return () => clearInterval(intervalId)
       }, animationDelay || 150)
     }
-  }, [code, show, animated, animationDelay])
+  }, [code, show, animated,animationDelay])
 
   // number of lines
   const lines = text.split(/\r\n|\r|\n/).length
-
   const theme = applicationTheme === 'light' ? lightTheme : darkTheme
 
   return (

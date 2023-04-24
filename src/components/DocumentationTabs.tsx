@@ -1,8 +1,6 @@
 'use client'
 import { FC } from 'react'
-import { Tabs, TabsList, TabsTrigger } from './ui/Tabs'
-import { TabsContent } from '@radix-ui/react-tabs'
-import SimpleBar from 'simplebar-react'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/Tabs'
 import Code from '@/components/Code'
 import { nodejs, python } from '@/helpers/documentation-code'
 

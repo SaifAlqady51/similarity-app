@@ -4,6 +4,8 @@ import LargeHeading from '@/ui/LargeHeading'
 import Paragraph from '@/ui/Paragraph'
 import DocumentationTabs from '@/components/DocumentationTabs'
 
+
+
 export const metadata: Metadata = {
     title: 'Similarity API | Documentation',
     description: 'Free & open-source text similarity API'

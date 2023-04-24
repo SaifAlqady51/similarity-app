@@ -23,7 +23,7 @@ const Code: FC<CodeProps> = ({
 }) => {
   const { theme: applicationTheme } = useTheme()
   const [text, setText] = useState<string>(animated ? '' : code)
-  // slice the code text and animate it smoothly on documentation page
+
   useEffect(() => {
     if (show && animated) {
       let i = 0
@@ -34,15 +34,16 @@ const Code: FC<CodeProps> = ({
           if (i > code.length) {
             clearInterval(intervalId)
           }
-        }, 20)
+        }, 15)
 
         return () => clearInterval(intervalId)
       }, animationDelay || 150)
     }
-  }, [code, show, animated,animationDelay])
+  }, [code, show, animated, animationDelay])
 
   // number of lines
   const lines = text.split(/\r\n|\r|\n/).length
+
   const theme = applicationTheme === 'light' ? lightTheme : darkTheme
 
   return (
@@ -51,7 +52,7 @@ const Code: FC<CodeProps> = ({
         <pre
           className={
             className +
-            'transition-all w-fit bg-transparent duration-100 py-0 no-scrollbar '
+            'transition-all w-fit bg-transparent duration-100 py-0 no-scrollbar'
           }
           style={{
             maxHeight: show ? lines * 24 : 0,

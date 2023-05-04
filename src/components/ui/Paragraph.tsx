@@ -24,6 +24,7 @@ interface ParagraphProps
 const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
   ({ className, size, children, ...props }, ref) => {
     return (
+      <div>
       <p
         ref={ref}
         {...props}
@@ -31,6 +32,8 @@ const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
       >
         {children}
       </p>
+    </div>
+
     );
   }
 );

@@ -8,11 +8,11 @@ function getGoogleCredentials(): { clientId: string; clientSecret: string; }{
     const clientId = process.env.GOOGLE_CLIENT_ID
     const clientSecret = process.env.GOOGLE_CLIENT_SECRET
 
-    if(!clientId || clientId?.length === 0){
+    if(!clientId || clientId.length === 0){
         throw new Error('no clientId for google provider set')
     }
 
-    if(!clientSecret || clientSecret?.length === 0){
+    if(!clientSecret || clientSecret.length === 0){
         throw new Error('no clientSecret for google provider set')
     }
 
@@ -36,7 +36,7 @@ export const authOptions: NextAuthOptions = {
     callbacks:{
         async session({ session, token }) {
 
-            if (token && session.user) {
+            if (token && session.user ) {
             //   session.user.id = token.id
               session.user.name = token.name
               session.user.email = token.email
@@ -45,8 +45,26 @@ export const authOptions: NextAuthOptions = {
             return session
           },
 
-        // async jwt({token,user}){
-        //     const dbUser = await db
-        // }
+        async jwt({token,user}){
+            const dbUser = await db.user.findFirst({
+                where: {
+                    email:token.email
+                }
+            })
+
+            if(!dbUser){
+                token.id = user!.id
+                return token
+            }
+
+            return {
+                id:dbUser.id,
+                name:dbUser.name,
+                email:dbUser.email
+            }
+        },
+        redirect(){
+            return '/dashboard'
+        }
     }
 }

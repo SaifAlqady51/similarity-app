@@ -30,9 +30,12 @@ const LargeHeading: FC<LargeHeadingProps> = ({
   ...props
 }) => {
   return (
-    <h1 {...props} className={cn(headingVariants({ size, className }))}>
-      {children}
-    </h1>
+    <div>
+      <h1 {...props} className={cn(headingVariants({ size, className }))}>
+        {children}
+      </h1>
+    </div>
+
   )
 }
 

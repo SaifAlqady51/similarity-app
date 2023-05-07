@@ -20,17 +20,14 @@ export default function RootLayout({
       <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased">
         <Providers>
           {children}
-          <Toaster position="bottom-right"/>
+          <Toaster position="bottom-right" />
 
           {/* @ts-expect-error Server Compoenet */}
           <Navbar />
         </Providers>
 
- 
-
         {/* Allow for more height for mobile devices */}
         <div className="h-40 md:hidden"></div>
-
       </body>
     </html>
   );

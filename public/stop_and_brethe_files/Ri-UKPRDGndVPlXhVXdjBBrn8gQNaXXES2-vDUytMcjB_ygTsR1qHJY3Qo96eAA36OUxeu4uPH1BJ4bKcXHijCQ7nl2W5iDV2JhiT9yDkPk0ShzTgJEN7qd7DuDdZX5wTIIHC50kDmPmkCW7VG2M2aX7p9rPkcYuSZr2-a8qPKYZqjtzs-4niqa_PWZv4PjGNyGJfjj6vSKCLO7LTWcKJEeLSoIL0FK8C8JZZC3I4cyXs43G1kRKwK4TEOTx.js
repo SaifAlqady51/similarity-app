@@ -10881,12 +10881,10 @@ __d(
     "use strict";
     function a(a) {
       var b = c("CurrentMessengerUser")();
-      return a
-        .table("_user_info")
-        .put({
-          facebookUserId: d("I64").of_string(b),
-          id: d("LSIntEnum").ofNumber(1),
-        });
+      return a.table("_user_info").put({
+        facebookUserId: d("I64").of_string(b),
+        id: d("LSIntEnum").ofNumber(1),
+      });
     }
     g["default"] = a;
   },
@@ -11830,17 +11828,15 @@ __d(
         function (d) {
           return (
             (c[0] = b.i64.of_float(Date.now())),
-            b.db
-              .table(6)
-              .add({
-                errorId: void 0,
-                taskId: a[0],
-                errorCode: a[1],
-                errorTitleText: a[2],
-                errorBodyText: a[3],
-                issuedTimestampMs: c[0],
-                presentationStyle: a[4],
-              })
+            b.db.table(6).add({
+              errorId: void 0,
+              taskId: a[0],
+              errorCode: a[1],
+              errorTitleText: a[2],
+              errorBodyText: a[3],
+              issuedTimestampMs: c[0],
+              presentationStyle: a[4],
+            })
           );
         },
         function (a) {
@@ -22640,43 +22636,39 @@ __d(
                   l = o.content;
                 return b("Promise")
                   .all([
-                    n
-                      .table("message_search_queries")
-                      .put({
-                        hasNextPage: void 0,
-                        nextPageCursor: void 0,
-                        query: f,
-                        resultCount: d("I64").of_int32(e),
-                        status: d("LSIntEnum").ofNumber(
-                          c("LSSearchRequestStatusType").COMPLETE
-                        ),
-                        threadKeyV2: i.threadKey,
-                        type_: g,
-                      }),
-                    n
-                      .table("message_search_results")
-                      .put({
-                        contextLine: k(e, o, g),
-                        displayName: d(
-                          "MWLSThreadTitle"
-                        ).getThreadTitleWithFullName(
-                          i.threadName,
-                          h,
-                          a[1],
-                          i.threadType
-                        ),
-                        globalIndex: d("I64").of_int32(-o.rowId | 0),
-                        matchLengths: String(f.length),
-                        matchOffsets: l != null ? String(l.indexOf(f)) : void 0,
-                        messageId: o.msgId,
-                        messageTimestampMs: d("MAWTimeUtils").toTimestamp(o.ts),
-                        profilePicUrl: j[0],
-                        query: f,
-                        secondaryProfilePicUrl: j[1],
-                        threadKey: i.threadKey,
-                        threadType: i.threadType,
-                        type_: g,
-                      }),
+                    n.table("message_search_queries").put({
+                      hasNextPage: void 0,
+                      nextPageCursor: void 0,
+                      query: f,
+                      resultCount: d("I64").of_int32(e),
+                      status: d("LSIntEnum").ofNumber(
+                        c("LSSearchRequestStatusType").COMPLETE
+                      ),
+                      threadKeyV2: i.threadKey,
+                      type_: g,
+                    }),
+                    n.table("message_search_results").put({
+                      contextLine: k(e, o, g),
+                      displayName: d(
+                        "MWLSThreadTitle"
+                      ).getThreadTitleWithFullName(
+                        i.threadName,
+                        h,
+                        a[1],
+                        i.threadType
+                      ),
+                      globalIndex: d("I64").of_int32(-o.rowId | 0),
+                      matchLengths: String(f.length),
+                      matchOffsets: l != null ? String(l.indexOf(f)) : void 0,
+                      messageId: o.msgId,
+                      messageTimestampMs: d("MAWTimeUtils").toTimestamp(o.ts),
+                      profilePicUrl: j[0],
+                      query: f,
+                      secondaryProfilePicUrl: j[1],
+                      threadKey: i.threadKey,
+                      threadType: i.threadType,
+                      type_: g,
+                    }),
                   ])
                   .then(c("emptyFunction"));
               });
@@ -26352,14 +26344,12 @@ __d(
                     function (b) {
                       return (
                         (d[1] = c.i64.of_float(Date.now())),
-                        c.db
-                          .table(67)
-                          .add({
-                            query: a[0],
-                            statusPrimary: c.i64.cast([0, 1]),
-                            statusSecondary: c.i64.cast([0, 1]),
-                            startTimeMs: d[1],
-                          })
+                        c.db.table(67).add({
+                          query: a[0],
+                          statusPrimary: c.i64.cast([0, 1]),
+                          statusSecondary: c.i64.cast([0, 1]),
+                          startTimeMs: d[1],
+                        })
                       );
                     },
                     function (e) {
@@ -32169,25 +32159,23 @@ __d(
                       );
                     },
                     function (b) {
-                      return c.db
-                        .table(9)
-                        .add({
-                          threadKey: a[0],
-                          mailboxType: c.i64.cast([0, 0]),
-                          threadType: a[1],
-                          folderName: a[2],
-                          lastReadWatermarkTimestampMs: c.i64.cast([0, 0]),
-                          removeWatermarkTimestampMs: c.i64.cast([
-                            -1, 4294967295,
-                          ]),
-                          ongoingCallState: c.i64.cast([0, 0]),
-                          parentThreadKey: a[3],
-                          authorityLevel: a[4],
-                          capabilities: d[3],
-                          capabilities2: d[4],
-                          capabilities3: d[5],
-                          unsendLimitMs: c.i64.cast([-1, 4294967295]),
-                        });
+                      return c.db.table(9).add({
+                        threadKey: a[0],
+                        mailboxType: c.i64.cast([0, 0]),
+                        threadType: a[1],
+                        folderName: a[2],
+                        lastReadWatermarkTimestampMs: c.i64.cast([0, 0]),
+                        removeWatermarkTimestampMs: c.i64.cast([
+                          -1, 4294967295,
+                        ]),
+                        ongoingCallState: c.i64.cast([0, 0]),
+                        parentThreadKey: a[3],
+                        authorityLevel: a[4],
+                        capabilities: d[3],
+                        capabilities2: d[4],
+                        capabilities3: d[5],
+                        unsendLimitMs: c.i64.cast([-1, 4294967295]),
+                      });
                     },
                     function (e) {
                       return c.i64.eq(a[1], c.i64.cast([0, 1]))
@@ -32214,18 +32202,16 @@ __d(
                               );
                             },
                             function (b) {
-                              return c.db
-                                .table(14)
-                                .add({
-                                  threadKey: a[0],
-                                  contactId: a[0],
-                                  readWatermarkTimestampMs: c.i64.cast([0, 0]),
-                                  deliveredWatermarkTimestampMs: c.i64.cast([
-                                    0, 0,
-                                  ]),
-                                  authorityLevel: a[4],
-                                  isModerator: !1,
-                                });
+                              return c.db.table(14).add({
+                                threadKey: a[0],
+                                contactId: a[0],
+                                readWatermarkTimestampMs: c.i64.cast([0, 0]),
+                                deliveredWatermarkTimestampMs: c.i64.cast([
+                                  0, 0,
+                                ]),
+                                authorityLevel: a[4],
+                                isModerator: !1,
+                              });
                             },
                             function (a) {
                               return c
@@ -32256,18 +32242,16 @@ __d(
                               );
                             },
                             function (b) {
-                              return c.db
-                                .table(14)
-                                .add({
-                                  threadKey: a[0],
-                                  contactId: d[6],
-                                  readWatermarkTimestampMs: c.i64.cast([0, 0]),
-                                  deliveredWatermarkTimestampMs: c.i64.cast([
-                                    0, 0,
-                                  ]),
-                                  authorityLevel: a[4],
-                                  isModerator: !1,
-                                });
+                              return c.db.table(14).add({
+                                threadKey: a[0],
+                                contactId: d[6],
+                                readWatermarkTimestampMs: c.i64.cast([0, 0]),
+                                deliveredWatermarkTimestampMs: c.i64.cast([
+                                  0, 0,
+                                ]),
+                                authorityLevel: a[4],
+                                isModerator: !1,
+                              });
                             },
                           ])
                         : c.resolve();
@@ -33125,13 +33109,11 @@ __d(
             ),
             function (c) {
               c = c.item;
-              return b.db
-                .table(233)
-                .add({
-                  taskId: a[0],
-                  notificationScopeKey: c.notificationScopeKey,
-                  notificationName: c.notificationName,
-                });
+              return b.db.table(233).add({
+                taskId: a[0],
+                notificationScopeKey: c.notificationScopeKey,
+                notificationName: c.notificationName,
+              });
             }
           );
         },
@@ -37117,29 +37099,27 @@ __d(
                       );
                     },
                     function (b) {
-                      return c.db
-                        .table(9)
-                        .add({
-                          threadKey: d[3],
-                          mailboxType: c.i64.cast([0, 4096]),
-                          threadType: a[0],
-                          folderName: d[4],
-                          lastActivityTimestampMs: c.i64.cast([-1, 4294967295]),
-                          lastReadWatermarkTimestampMs: c.i64.cast([
-                            -1, 4294967295,
-                          ]),
-                          removeWatermarkTimestampMs: c.i64.cast([
-                            -1, 4294967295,
-                          ]),
-                          ongoingCallState: c.i64.cast([0, 0]),
-                          parentThreadKey: d[5],
-                          authorityLevel: a[2],
-                          capabilities: d[6],
-                          capabilities2: d[7],
-                          capabilities3: d[8],
-                          unsendLimitMs: c.i64.cast([-1, 4294967295]),
-                          syncGroup: c.i64.cast([0, 95]),
-                        });
+                      return c.db.table(9).add({
+                        threadKey: d[3],
+                        mailboxType: c.i64.cast([0, 4096]),
+                        threadType: a[0],
+                        folderName: d[4],
+                        lastActivityTimestampMs: c.i64.cast([-1, 4294967295]),
+                        lastReadWatermarkTimestampMs: c.i64.cast([
+                          -1, 4294967295,
+                        ]),
+                        removeWatermarkTimestampMs: c.i64.cast([
+                          -1, 4294967295,
+                        ]),
+                        ongoingCallState: c.i64.cast([0, 0]),
+                        parentThreadKey: d[5],
+                        authorityLevel: a[2],
+                        capabilities: d[6],
+                        capabilities2: d[7],
+                        capabilities3: d[8],
+                        unsendLimitMs: c.i64.cast([-1, 4294967295]),
+                        syncGroup: c.i64.cast([0, 95]),
+                      });
                     },
                     function (a) {
                       return (d[2] = d[3]);
@@ -39697,12 +39677,10 @@ __d(
                           return e
                             ? c.seq([
                                 function (b) {
-                                  return c.db
-                                    .table(35)
-                                    .add({
-                                      parentThreadKey: a[0],
-                                      lastSeenRequestTimestampMs: d[0],
-                                    });
+                                  return c.db.table(35).add({
+                                    parentThreadKey: a[0],
+                                    lastSeenRequestTimestampMs: d[0],
+                                  });
                                 },
                                 function (e) {
                                   return (
@@ -40248,21 +40226,19 @@ __d(
             function (d) {
               return (
                 (c[0] = b.i64.of_float(Date.now())),
-                b.db
-                  .table(2)
-                  .add({
-                    taskId: void 0,
-                    queueName: a[0],
-                    context: b.i64.to_string(a[1]),
-                    taskValue: a[2],
-                    enqueueTimestampMs: c[0],
-                    httpUrlOverride: a[3],
-                    timeoutTimestampMs: a[4],
-                    pluginType: a[5],
-                    priority: a[6],
-                    syncGroupId: a[7],
-                    minTimeToSyncTimestampMs: a[9],
-                  })
+                b.db.table(2).add({
+                  taskId: void 0,
+                  queueName: a[0],
+                  context: b.i64.to_string(a[1]),
+                  taskValue: a[2],
+                  enqueueTimestampMs: c[0],
+                  httpUrlOverride: a[3],
+                  timeoutTimestampMs: a[4],
+                  pluginType: a[5],
+                  priority: a[6],
+                  syncGroupId: a[7],
+                  minTimeToSyncTimestampMs: a[9],
+                })
               );
             },
             function (d) {
@@ -40350,31 +40326,29 @@ __d(
                       );
                     },
                     function (b) {
-                      return c.db
-                        .table(7)
-                        .add({
-                          id: a[0],
-                          profilePictureUrl: a[2] == null ? "" : a[2],
-                          profilePictureFallbackUrl: a[5],
-                          name: d[0],
-                          secondaryName: a[20],
-                          normalizedNameForSearch: d[0],
-                          isMemorialized: a[9],
-                          blockedByViewerStatus: a[11],
-                          canViewerMessage: a[12],
-                          profilePictureLargeUrl: "",
-                          isMessengerUser: !0,
-                          rank: 0,
-                          contactType: a[4],
-                          contactTypeExact: c.i64.cast([0, 0]),
-                          requiresMultiway: !1,
-                          authorityLevel: a[14],
-                          workForeignEntityType: c.i64.cast([0, 0]),
-                          capabilities: a[15],
-                          capabilities2: a[16],
-                          contactViewerRelationship: a[19],
-                          gender: a[18],
-                        });
+                      return c.db.table(7).add({
+                        id: a[0],
+                        profilePictureUrl: a[2] == null ? "" : a[2],
+                        profilePictureFallbackUrl: a[5],
+                        name: d[0],
+                        secondaryName: a[20],
+                        normalizedNameForSearch: d[0],
+                        isMemorialized: a[9],
+                        blockedByViewerStatus: a[11],
+                        canViewerMessage: a[12],
+                        profilePictureLargeUrl: "",
+                        isMessengerUser: !0,
+                        rank: 0,
+                        contactType: a[4],
+                        contactTypeExact: c.i64.cast([0, 0]),
+                        requiresMultiway: !1,
+                        authorityLevel: a[14],
+                        workForeignEntityType: c.i64.cast([0, 0]),
+                        capabilities: a[15],
+                        capabilities2: a[16],
+                        contactViewerRelationship: a[19],
+                        gender: a[18],
+                      });
                     },
                     function (e) {
                       return (
@@ -40472,83 +40446,81 @@ __d(
               var g = d.done;
               d = d.value;
               return g
-                ? b.db
-                    .table(9)
-                    .put({
-                      threadKey: a[7],
-                      lastReadWatermarkTimestampMs: a[1],
-                      authorityLevel: a[6],
-                      mailboxType: a[8],
-                      threadType: a[9],
-                      folderName: a[10],
-                      ongoingCallState: a[26],
-                      parentThreadKey: a[32],
-                      lastActivityTimestampMs: a[0],
-                      snippet: a[2],
-                      threadName: a[3],
-                      threadPictureUrl: a[4],
-                      needsAdminApprovalForNewParticipant: a[5],
-                      threadPictureUrlFallback: a[11],
-                      threadPictureUrlExpirationTimestampMs: a[12],
-                      removeWatermarkTimestampMs: a[13],
-                      muteExpireTimeMs: a[14],
-                      muteCallsExpireTimeMs: a[15],
-                      groupNotificationSettings: a[16],
-                      isAdminSnippet: a[17],
-                      snippetSenderContactId: a[18],
-                      snippetStringHash: a[21],
-                      snippetStringArgument1: a[22],
-                      snippetAttribution: a[23],
-                      snippetAttributionStringHash: a[24],
-                      cannotReplyReason: a[27],
-                      customEmoji: a[28],
-                      customEmojiImageUrl: a[29],
-                      outgoingBubbleColor: a[30],
-                      themeFbid: a[31],
-                      nullstateDescriptionText1: a[33],
-                      nullstateDescriptionType1: a[34],
-                      nullstateDescriptionText2: a[35],
-                      nullstateDescriptionType2: a[36],
-                      nullstateDescriptionText3: a[37],
-                      nullstateDescriptionType3: a[38],
-                      draftMessage: a[39],
-                      snippetHasEmoji: a[40],
-                      hasPersistentMenu: a[41],
-                      disableComposerInput: a[42],
-                      cannotUnsendReason: a[43],
-                      viewedPluginKey: a[44],
-                      viewedPluginContext: a[45],
-                      clientThreadKey: a[46],
-                      capabilities: a[47],
-                      shouldRoundThreadPicture: a[48],
-                      proactiveWarningDismissTime: a[49],
-                      isCustomThreadPicture: a[50],
-                      otidOfFirstMessage: a[51],
-                      normalizedSearchTerms: a[52],
-                      additionalThreadContext: a[53],
-                      disappearingThreadKey: a[54],
-                      isDisappearingMode: a[55],
-                      disappearingModeInitiator: a[56],
-                      unreadDisappearingMessageCount: a[57],
-                      lastMessageCtaId: a[59],
-                      lastMessageCtaType: a[60],
-                      threadDescription: a[61],
-                      unsendLimitMs: a[62],
-                      syncGroup: a[63],
-                      threadInvitesEnabled: a[64],
-                      threadInviteLink: a[65],
-                      threadInvitesEnabledV2: a[66],
-                      eventStartTimestampMs: a[67],
-                      eventEndTimestampMs: a[68],
-                      takedownState: a[69],
-                      memberCount: a[70],
-                      secondaryParentThreadKey: a[71],
-                      igFolder: a[72],
-                      inviterId: a[73],
-                      threadTags: a[74],
-                      threadStatus: a[75],
-                      threadSubtype: a[76],
-                    })
+                ? b.db.table(9).put({
+                    threadKey: a[7],
+                    lastReadWatermarkTimestampMs: a[1],
+                    authorityLevel: a[6],
+                    mailboxType: a[8],
+                    threadType: a[9],
+                    folderName: a[10],
+                    ongoingCallState: a[26],
+                    parentThreadKey: a[32],
+                    lastActivityTimestampMs: a[0],
+                    snippet: a[2],
+                    threadName: a[3],
+                    threadPictureUrl: a[4],
+                    needsAdminApprovalForNewParticipant: a[5],
+                    threadPictureUrlFallback: a[11],
+                    threadPictureUrlExpirationTimestampMs: a[12],
+                    removeWatermarkTimestampMs: a[13],
+                    muteExpireTimeMs: a[14],
+                    muteCallsExpireTimeMs: a[15],
+                    groupNotificationSettings: a[16],
+                    isAdminSnippet: a[17],
+                    snippetSenderContactId: a[18],
+                    snippetStringHash: a[21],
+                    snippetStringArgument1: a[22],
+                    snippetAttribution: a[23],
+                    snippetAttributionStringHash: a[24],
+                    cannotReplyReason: a[27],
+                    customEmoji: a[28],
+                    customEmojiImageUrl: a[29],
+                    outgoingBubbleColor: a[30],
+                    themeFbid: a[31],
+                    nullstateDescriptionText1: a[33],
+                    nullstateDescriptionType1: a[34],
+                    nullstateDescriptionText2: a[35],
+                    nullstateDescriptionType2: a[36],
+                    nullstateDescriptionText3: a[37],
+                    nullstateDescriptionType3: a[38],
+                    draftMessage: a[39],
+                    snippetHasEmoji: a[40],
+                    hasPersistentMenu: a[41],
+                    disableComposerInput: a[42],
+                    cannotUnsendReason: a[43],
+                    viewedPluginKey: a[44],
+                    viewedPluginContext: a[45],
+                    clientThreadKey: a[46],
+                    capabilities: a[47],
+                    shouldRoundThreadPicture: a[48],
+                    proactiveWarningDismissTime: a[49],
+                    isCustomThreadPicture: a[50],
+                    otidOfFirstMessage: a[51],
+                    normalizedSearchTerms: a[52],
+                    additionalThreadContext: a[53],
+                    disappearingThreadKey: a[54],
+                    isDisappearingMode: a[55],
+                    disappearingModeInitiator: a[56],
+                    unreadDisappearingMessageCount: a[57],
+                    lastMessageCtaId: a[59],
+                    lastMessageCtaType: a[60],
+                    threadDescription: a[61],
+                    unsendLimitMs: a[62],
+                    syncGroup: a[63],
+                    threadInvitesEnabled: a[64],
+                    threadInviteLink: a[65],
+                    threadInvitesEnabledV2: a[66],
+                    eventStartTimestampMs: a[67],
+                    eventEndTimestampMs: a[68],
+                    takedownState: a[69],
+                    memberCount: a[70],
+                    secondaryParentThreadKey: a[71],
+                    igFolder: a[72],
+                    inviterId: a[73],
+                    threadTags: a[74],
+                    threadStatus: a[75],
+                    threadSubtype: a[76],
+                  })
                 : ((f = d.item),
                   (c[1] = f.lastActivityTimestampMs),
                   (c[3] = f.parentThreadKey),
@@ -40566,161 +40538,157 @@ __d(
                             (c[5] = d[0]),
                             (c[6] = d[1]),
                             d),
-                        b.db
-                          .table(9)
-                          .put({
-                            threadKey: a[7],
-                            lastReadWatermarkTimestampMs:
-                              f.lastReadWatermarkTimestampMs,
-                            authorityLevel: a[6],
-                            mailboxType: a[8],
-                            threadType: a[9],
-                            folderName: c[6],
-                            ongoingCallState: a[26],
-                            parentThreadKey: c[5],
-                            lastActivityTimestampMs: c[1],
-                            snippet: a[2],
-                            threadName: a[3],
-                            threadPictureUrl: a[4],
-                            needsAdminApprovalForNewParticipant: a[5],
-                            threadPictureUrlFallback: a[11],
-                            threadPictureUrlExpirationTimestampMs: a[12],
-                            removeWatermarkTimestampMs: a[13],
-                            muteExpireTimeMs: a[14],
-                            muteCallsExpireTimeMs: a[15],
-                            groupNotificationSettings: a[16],
-                            isAdminSnippet: a[17],
-                            snippetSenderContactId: a[18],
-                            snippetStringHash: a[21],
-                            snippetStringArgument1: a[22],
-                            snippetAttribution: a[23],
-                            snippetAttributionStringHash: a[24],
-                            cannotReplyReason: a[27],
-                            customEmoji: a[28],
-                            customEmojiImageUrl: a[29],
-                            outgoingBubbleColor: a[30],
-                            themeFbid: a[31],
-                            nullstateDescriptionText1: a[33],
-                            nullstateDescriptionType1: a[34],
-                            nullstateDescriptionText2: a[35],
-                            nullstateDescriptionType2: a[36],
-                            nullstateDescriptionText3: a[37],
-                            nullstateDescriptionType3: a[38],
-                            draftMessage: a[39],
-                            snippetHasEmoji: a[40],
-                            hasPersistentMenu: a[41],
-                            disableComposerInput: a[42],
-                            cannotUnsendReason: a[43],
-                            viewedPluginKey: a[44],
-                            viewedPluginContext: a[45],
-                            clientThreadKey: a[46],
-                            capabilities: a[47],
-                            shouldRoundThreadPicture: a[48],
-                            proactiveWarningDismissTime: a[49],
-                            isCustomThreadPicture: a[50],
-                            otidOfFirstMessage: a[51],
-                            normalizedSearchTerms: a[52],
-                            additionalThreadContext: a[53],
-                            disappearingThreadKey: c[2],
-                            isDisappearingMode: c[4],
-                            disappearingModeInitiator: a[56],
-                            unreadDisappearingMessageCount: a[57],
-                            lastMessageCtaId: a[59],
-                            lastMessageCtaType: a[60],
-                            threadDescription: a[61],
-                            unsendLimitMs: a[62],
-                            syncGroup: a[63],
-                            threadInvitesEnabled: a[64],
-                            threadInviteLink: a[65],
-                            threadInvitesEnabledV2: a[66],
-                            eventStartTimestampMs: a[67],
-                            eventEndTimestampMs: a[68],
-                            takedownState: a[69],
-                            memberCount: a[70],
-                            secondaryParentThreadKey: a[71],
-                            igFolder: a[72],
-                            inviterId: a[73],
-                            threadTags: a[74],
-                            threadStatus: a[75],
-                            threadSubtype: a[76],
-                          }))
-                      : b.db
-                          .table(9)
-                          .put({
-                            threadKey: a[7],
-                            lastReadWatermarkTimestampMs: a[1],
-                            authorityLevel: a[6],
-                            mailboxType: a[8],
-                            threadType: a[9],
-                            folderName: a[10],
-                            ongoingCallState: a[26],
-                            parentThreadKey: a[32],
-                            lastActivityTimestampMs: a[0],
-                            snippet: a[2],
-                            threadName: a[3],
-                            threadPictureUrl: a[4],
-                            needsAdminApprovalForNewParticipant: a[5],
-                            threadPictureUrlFallback: a[11],
-                            threadPictureUrlExpirationTimestampMs: a[12],
-                            removeWatermarkTimestampMs: a[13],
-                            muteExpireTimeMs: a[14],
-                            muteCallsExpireTimeMs: a[15],
-                            groupNotificationSettings: a[16],
-                            isAdminSnippet: a[17],
-                            snippetSenderContactId: a[18],
-                            snippetStringHash: a[21],
-                            snippetStringArgument1: a[22],
-                            snippetAttribution: a[23],
-                            snippetAttributionStringHash: a[24],
-                            cannotReplyReason: a[27],
-                            customEmoji: a[28],
-                            customEmojiImageUrl: a[29],
-                            outgoingBubbleColor: a[30],
-                            themeFbid: a[31],
-                            nullstateDescriptionText1: a[33],
-                            nullstateDescriptionType1: a[34],
-                            nullstateDescriptionText2: a[35],
-                            nullstateDescriptionType2: a[36],
-                            nullstateDescriptionText3: a[37],
-                            nullstateDescriptionType3: a[38],
-                            draftMessage: a[39],
-                            snippetHasEmoji: a[40],
-                            hasPersistentMenu: a[41],
-                            disableComposerInput: a[42],
-                            cannotUnsendReason: a[43],
-                            viewedPluginKey: a[44],
-                            viewedPluginContext: a[45],
-                            clientThreadKey: a[46],
-                            capabilities: a[47],
-                            shouldRoundThreadPicture: a[48],
-                            proactiveWarningDismissTime: a[49],
-                            isCustomThreadPicture: a[50],
-                            otidOfFirstMessage: a[51],
-                            normalizedSearchTerms: a[52],
-                            additionalThreadContext: a[53],
-                            disappearingThreadKey: c[2],
-                            isDisappearingMode: c[4],
-                            disappearingModeInitiator: a[56],
-                            unreadDisappearingMessageCount: a[57],
-                            lastMessageCtaId: a[59],
-                            lastMessageCtaType: a[60],
-                            threadDescription: a[61],
-                            unsendLimitMs: a[62],
-                            syncGroup: a[63],
-                            threadInvitesEnabled: a[64],
-                            threadInviteLink: a[65],
-                            threadInvitesEnabledV2: a[66],
-                            eventStartTimestampMs: a[67],
-                            eventEndTimestampMs: a[68],
-                            takedownState: a[69],
-                            memberCount: a[70],
-                            secondaryParentThreadKey: a[71],
-                            igFolder: a[72],
-                            inviterId: a[73],
-                            threadTags: a[74],
-                            threadStatus: a[75],
-                            threadSubtype: a[76],
-                          })
+                        b.db.table(9).put({
+                          threadKey: a[7],
+                          lastReadWatermarkTimestampMs:
+                            f.lastReadWatermarkTimestampMs,
+                          authorityLevel: a[6],
+                          mailboxType: a[8],
+                          threadType: a[9],
+                          folderName: c[6],
+                          ongoingCallState: a[26],
+                          parentThreadKey: c[5],
+                          lastActivityTimestampMs: c[1],
+                          snippet: a[2],
+                          threadName: a[3],
+                          threadPictureUrl: a[4],
+                          needsAdminApprovalForNewParticipant: a[5],
+                          threadPictureUrlFallback: a[11],
+                          threadPictureUrlExpirationTimestampMs: a[12],
+                          removeWatermarkTimestampMs: a[13],
+                          muteExpireTimeMs: a[14],
+                          muteCallsExpireTimeMs: a[15],
+                          groupNotificationSettings: a[16],
+                          isAdminSnippet: a[17],
+                          snippetSenderContactId: a[18],
+                          snippetStringHash: a[21],
+                          snippetStringArgument1: a[22],
+                          snippetAttribution: a[23],
+                          snippetAttributionStringHash: a[24],
+                          cannotReplyReason: a[27],
+                          customEmoji: a[28],
+                          customEmojiImageUrl: a[29],
+                          outgoingBubbleColor: a[30],
+                          themeFbid: a[31],
+                          nullstateDescriptionText1: a[33],
+                          nullstateDescriptionType1: a[34],
+                          nullstateDescriptionText2: a[35],
+                          nullstateDescriptionType2: a[36],
+                          nullstateDescriptionText3: a[37],
+                          nullstateDescriptionType3: a[38],
+                          draftMessage: a[39],
+                          snippetHasEmoji: a[40],
+                          hasPersistentMenu: a[41],
+                          disableComposerInput: a[42],
+                          cannotUnsendReason: a[43],
+                          viewedPluginKey: a[44],
+                          viewedPluginContext: a[45],
+                          clientThreadKey: a[46],
+                          capabilities: a[47],
+                          shouldRoundThreadPicture: a[48],
+                          proactiveWarningDismissTime: a[49],
+                          isCustomThreadPicture: a[50],
+                          otidOfFirstMessage: a[51],
+                          normalizedSearchTerms: a[52],
+                          additionalThreadContext: a[53],
+                          disappearingThreadKey: c[2],
+                          isDisappearingMode: c[4],
+                          disappearingModeInitiator: a[56],
+                          unreadDisappearingMessageCount: a[57],
+                          lastMessageCtaId: a[59],
+                          lastMessageCtaType: a[60],
+                          threadDescription: a[61],
+                          unsendLimitMs: a[62],
+                          syncGroup: a[63],
+                          threadInvitesEnabled: a[64],
+                          threadInviteLink: a[65],
+                          threadInvitesEnabledV2: a[66],
+                          eventStartTimestampMs: a[67],
+                          eventEndTimestampMs: a[68],
+                          takedownState: a[69],
+                          memberCount: a[70],
+                          secondaryParentThreadKey: a[71],
+                          igFolder: a[72],
+                          inviterId: a[73],
+                          threadTags: a[74],
+                          threadStatus: a[75],
+                          threadSubtype: a[76],
+                        }))
+                      : b.db.table(9).put({
+                          threadKey: a[7],
+                          lastReadWatermarkTimestampMs: a[1],
+                          authorityLevel: a[6],
+                          mailboxType: a[8],
+                          threadType: a[9],
+                          folderName: a[10],
+                          ongoingCallState: a[26],
+                          parentThreadKey: a[32],
+                          lastActivityTimestampMs: a[0],
+                          snippet: a[2],
+                          threadName: a[3],
+                          threadPictureUrl: a[4],
+                          needsAdminApprovalForNewParticipant: a[5],
+                          threadPictureUrlFallback: a[11],
+                          threadPictureUrlExpirationTimestampMs: a[12],
+                          removeWatermarkTimestampMs: a[13],
+                          muteExpireTimeMs: a[14],
+                          muteCallsExpireTimeMs: a[15],
+                          groupNotificationSettings: a[16],
+                          isAdminSnippet: a[17],
+                          snippetSenderContactId: a[18],
+                          snippetStringHash: a[21],
+                          snippetStringArgument1: a[22],
+                          snippetAttribution: a[23],
+                          snippetAttributionStringHash: a[24],
+                          cannotReplyReason: a[27],
+                          customEmoji: a[28],
+                          customEmojiImageUrl: a[29],
+                          outgoingBubbleColor: a[30],
+                          themeFbid: a[31],
+                          nullstateDescriptionText1: a[33],
+                          nullstateDescriptionType1: a[34],
+                          nullstateDescriptionText2: a[35],
+                          nullstateDescriptionType2: a[36],
+                          nullstateDescriptionText3: a[37],
+                          nullstateDescriptionType3: a[38],
+                          draftMessage: a[39],
+                          snippetHasEmoji: a[40],
+                          hasPersistentMenu: a[41],
+                          disableComposerInput: a[42],
+                          cannotUnsendReason: a[43],
+                          viewedPluginKey: a[44],
+                          viewedPluginContext: a[45],
+                          clientThreadKey: a[46],
+                          capabilities: a[47],
+                          shouldRoundThreadPicture: a[48],
+                          proactiveWarningDismissTime: a[49],
+                          isCustomThreadPicture: a[50],
+                          otidOfFirstMessage: a[51],
+                          normalizedSearchTerms: a[52],
+                          additionalThreadContext: a[53],
+                          disappearingThreadKey: c[2],
+                          isDisappearingMode: c[4],
+                          disappearingModeInitiator: a[56],
+                          unreadDisappearingMessageCount: a[57],
+                          lastMessageCtaId: a[59],
+                          lastMessageCtaType: a[60],
+                          threadDescription: a[61],
+                          unsendLimitMs: a[62],
+                          syncGroup: a[63],
+                          threadInvitesEnabled: a[64],
+                          threadInviteLink: a[65],
+                          threadInvitesEnabledV2: a[66],
+                          eventStartTimestampMs: a[67],
+                          eventEndTimestampMs: a[68],
+                          takedownState: a[69],
+                          memberCount: a[70],
+                          secondaryParentThreadKey: a[71],
+                          igFolder: a[72],
+                          inviterId: a[73],
+                          threadTags: a[74],
+                          threadStatus: a[75],
+                          threadSubtype: a[76],
+                        })
                     : b.resolve());
             });
         },
@@ -40788,12 +40756,10 @@ __d(
               });
             },
             function (b) {
-              return c.db
-                .table(163)
-                .put({
-                  fbTrackersOnOtherCompanies: a[0],
-                  otherCompanyTrackersOnFoa: a[1],
-                });
+              return c.db.table(163).put({
+                fbTrackersOnOtherCompanies: a[0],
+                otherCompanyTrackersOnFoa: a[1],
+              });
             },
           ]);
         },

@@ -50499,17 +50499,15 @@ __d(
                 (t.fb_api_analytics_tags = JSON.stringify(i));
               g != null
                 ? k.setRawData(o(g, t))
-                : k
-                    .setData(t)
-                    .setRequestHeaders(
-                      babelHelpers["extends"](
-                        {
-                          "Content-Type": "application/x-www-form-urlencoded",
-                          "X-FB-Friendly-Name": e.name,
-                        },
-                        d
-                      )
-                    );
+                : k.setData(t).setRequestHeaders(
+                    babelHelpers["extends"](
+                      {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        "X-FB-Friendly-Name": e.name,
+                      },
+                      d
+                    )
+                  );
               return k.send().abort;
             },
           });
@@ -53776,16 +53774,14 @@ __d(
         (d || e) && (h = { operation: c, response: d, updater: e });
         return this.$21(a, {
           createSource: function () {
-            return a
-              .getNetwork()
-              .execute(
-                c.request.node.params,
-                c.request.variables,
-                babelHelpers["extends"]({}, c.request.cacheConfig, {
-                  force: !0,
-                }),
-                g
-              );
+            return a.getNetwork().execute(
+              c.request.node.params,
+              c.request.variables,
+              babelHelpers["extends"]({}, c.request.cacheConfig, {
+                force: !0,
+              }),
+              g
+            );
           },
           isClientPayload: !1,
           operation: c,

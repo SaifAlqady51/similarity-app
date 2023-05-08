@@ -1,4 +1,3 @@
-import { FC } from "react";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -15,16 +14,23 @@ export const metadata: Metadata = {
 
 const page = async () => {
   const user = await getServerSession(authOptions);
-  if (!user) {
+  console.log(user)
+  if (! user) {
     return notFound();
   }
 
   const apiKey = await db.apiKey.findFirst({
-    where: { userId: user.user.id, enabled: true },
+    // @ts-expect-error Server Compoent
+    where: { userId: user.user.id },
   });
   return (
     <div className="max-w-7xl mt-16 mx-auto">
-      {apiKey ? <ApiDashboard /> : <RequestApiKey />}
+      {apiKey ? (
+        // @ts-expect-error Server Compoent
+        <ApiDashboard />
+      ) : (
+        <RequestApiKey />
+      )}
     </div>
   );
 };

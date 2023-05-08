@@ -18,7 +18,6 @@ const RequestApiKey: FC<RequestApiKeyProps> = ({}) => {
   const createNewApiKey = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsCreating(true);
-
     try {
       const generatedApiKey = await createApiKey();
       setApiKey(generatedApiKey);
@@ -49,7 +48,7 @@ const RequestApiKey: FC<RequestApiKeyProps> = ({}) => {
         <Paragraph>you haven&apos;t request an API key yet.</Paragraph>
       </div>
       <form
-        onSubmit={createApiKey}
+        onSubmit={createNewApiKey}
         className="mt-6 sm:flex sm:items-center"
         action="#"
       >
@@ -60,11 +59,20 @@ const RequestApiKey: FC<RequestApiKeyProps> = ({}) => {
               valueToCopy={apiKey}
               className="absolute inset-y-0 right-0 animate-in fade-in duration-300"
             />
-            ) : null}
-            <Input readOnly value={apiKey ?? ''} placeholder="API key" />
+          ) : null}
+          <Input
+            readOnly
+            value={apiKey ?? ""}
+            placeholder="API key"
+          />
         </div>
         <div className="mt-3 sm:mt-0 sm:ml-4 sm:flex-shrink-0">
-            <Button isLoading={isCreating} disabled={!!apiKey}>Request Key</Button>
+          <Button
+            isLoading={isCreating}
+            disabled={!!apiKey}
+          >
+            Request Key
+          </Button>
         </div>
       </form>
     </div>

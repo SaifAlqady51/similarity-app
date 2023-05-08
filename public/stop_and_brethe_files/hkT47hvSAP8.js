@@ -106,17 +106,15 @@ __d(
         function (d) {
           return (
             (c[0] = b.i64.of_float(Date.now())),
-            b.db
-              .table(154)
-              .add({
-                addonId: void 0,
-                traceId: a[0],
-                timestampMs: c[0],
-                checkPointId: a[1],
-                syncChannel: a[2],
-                errorMessage: a[3],
-                tags: a[4],
-              })
+            b.db.table(154).add({
+              addonId: void 0,
+              traceId: a[0],
+              timestampMs: c[0],
+              checkPointId: a[1],
+              syncChannel: a[2],
+              errorMessage: a[3],
+              tags: a[4],
+            })
           );
         },
         function (a) {
@@ -1905,16 +1903,14 @@ __d(
       var c = [];
       return b.seq([
         function (c) {
-          return b.db
-            .table(186)
-            .put({
-              contactId: a[0],
-              status: a[1],
-              expirationTimestampMs: a[3],
-              lastActiveTimestampMs: a[2],
-              capabilities: a[4],
-              publishId: a[5],
-            });
+          return b.db.table(186).put({
+            contactId: a[0],
+            status: a[1],
+            expirationTimestampMs: a[3],
+            lastActiveTimestampMs: a[2],
+            capabilities: a[4],
+            publishId: a[5],
+          });
         },
         function (a) {
           return b.resolve(c);

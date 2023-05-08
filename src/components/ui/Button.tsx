@@ -33,7 +33,7 @@ interface ButtonProps
   extends HTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   isLoading?: boolean;
-  disabled?:boolean;
+  disabled?: boolean;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -43,15 +43,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         disabled={isLoading}
-        {...props}>
-        {isLoading ? <Loader2 className='mr-2 h-4 w-4 animate-spin' /> : null}
+        {...props}
+      >
+        {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
         {children}
       </button>
-    )
+    );
   }
-)
+);
 
 Button.displayName = "Button";
 
 export { Button, buttonVariants };
-

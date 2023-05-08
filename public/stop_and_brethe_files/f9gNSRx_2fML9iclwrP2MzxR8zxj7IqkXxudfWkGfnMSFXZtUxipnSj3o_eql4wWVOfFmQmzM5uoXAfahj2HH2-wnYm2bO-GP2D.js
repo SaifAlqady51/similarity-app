@@ -1355,15 +1355,13 @@ __d(
           audience_id: b,
           total_budgets_with_offset: [
             parseInt(
-              h
-                .multiply(n * g)
-                .format({
-                  showCurrencyCode: !1,
-                  showDecimals: !1,
-                  showSymbol: !1,
-                  stripZeros: !1,
-                  thousandSeparator: !1,
-                }),
+              h.multiply(n * g).format({
+                showCurrencyCode: !1,
+                showDecimals: !1,
+                showSymbol: !1,
+                stripZeros: !1,
+                thousandSeparator: !1,
+              }),
               10
             ),
           ],

@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 
 const page = async () => {
   const user = await getServerSession(authOptions);
-  console.log(user)
-  if (! user) {
+  console.log(user);
+  if (!user) {
     return notFound();
   }
 

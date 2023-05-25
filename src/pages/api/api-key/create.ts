@@ -5,16 +5,14 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth";
 import { nanoid } from "nanoid";
 import { z } from "zod";
-import { withMedthods } from "@/lib/api-middlewares/with-method";
+import { withMethods } from "@/lib/api-middlewares/with-method";
 
 const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<CreateApiData>
 ) => {
   try {
-    const user = await getServerSession(req, res, authOptions).then(
-      (res) => res?.user
-    );
+    const user = await getServerSession(req, res, authOptions).then((res) => res?.user)
 
     if (!user) {
       return res.status(401).json({
@@ -54,4 +52,4 @@ const handler = async (
   }
 };
 
-export default withMedthods(["GET"], handler);
+export default withMethods(["GET"], handler);

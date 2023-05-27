@@ -20,7 +20,7 @@ export default withAuth(
 
     // Manage rate limiting
     if (pathname.startsWith('/api')) {
-      const ip = req.ip ?? 'localhost:3000'
+      const ip = req.ip ?? '127.0.0.1'
       try {
         const { success } = await ratelimit.limit(ip)
 
@@ -36,7 +36,6 @@ export default withAuth(
     const isAuth = !!token
     const isAuthPage = req.nextUrl.pathname.startsWith('/login')
 
-    console.log(isAuth,isAuthPage)
 
     const sensitiveRoutes = ['/dashboard']
 
@@ -68,5 +67,5 @@ export default withAuth(
 )
 
 export const config = {
-  matcher: ['/', '/login', '/dashboard/:path*', '/api/:path*'],
+  matcher: ['/', '/login', '/dashboard', '/api/:path*'],
 }

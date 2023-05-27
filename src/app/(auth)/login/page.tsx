@@ -2,6 +2,7 @@ import Icons from "@/components/Icons";
 import { buttonVariants } from "@/components/ui/Button";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/components/ui/Paragraph";
+import UserAuthForm from "@/components/ui/UserAuthForm";
 import Link from "next/link";
 import { FC } from "react";
 
@@ -22,6 +23,7 @@ const page: FC = ({}) => {
           </Link>
           <LargeHeading>Welcome back!</LargeHeading>
           <Paragraph>Please sign in with your google account.</Paragraph>
+          <UserAuthForm />
         </div>
       </div>
     </div>

@@ -35,6 +35,7 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async session({ session, token }) {
       if (token && session?.user) {
+        // @ts-expect-error Server Compoent
         session.user.id = token.id;
         session.user.name = token.name;
         session.user.email = token.email;

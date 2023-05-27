@@ -12,7 +12,9 @@ const handler = async (
   res: NextApiResponse<CreateApiData>
 ) => {
   try {
-    const user = await getServerSession(req, res, authOptions).then((res) => res?.user)
+    const user = await getServerSession(req, res, authOptions).then(
+      (res) => res?.user
+    );
 
     if (!user) {
       return res.status(401).json({

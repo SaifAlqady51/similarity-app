@@ -33,8 +33,8 @@ export default withAuth(
 
     // Manage route protection
     const token = await getToken({ req })
-    const isAuth = !!token
-    const isAuthPage = req.nextUrl.pathname.startsWith('/login')
+    const isAuth = await !!token
+    const isAuthPage = await req.nextUrl.pathname.startsWith('/login')
 
 
     const sensitiveRoutes = ['/dashboard']
@@ -47,12 +47,12 @@ export default withAuth(
       return null
     }
 
-    if (
-      !isAuth &&
-      sensitiveRoutes.some((route) => pathname.startsWith(route))
-    ) {
-      return NextResponse.redirect(new URL('/login', req.url))
-    }
+    // if (
+    //   !isAuth &&
+    //   sensitiveRoutes.some((route) => pathname.startsWith(route))
+    // ) {
+    //   return NextResponse.redirect(new URL('/login', req.url))
+    // }
   },
   {
     callbacks: {

@@ -35,14 +35,12 @@ export default withAuth(
     const token = await getToken({ req })
     const isAuth =  !!token
     const isAuthPage =  req.nextUrl.pathname.startsWith('/login')
-    console.log('credits:::********************************')
     console.log(token,isAuth,isAuthPage)
 
 
     const sensitiveRoutes = ['/dashboard']
 
 
-    console.log(sensitiveRoutes.some((route) => pathname.startsWith(route)));
 
       if (isAuthPage && isAuth) {
         return NextResponse.redirect(new URL('/dashboard', req.url))

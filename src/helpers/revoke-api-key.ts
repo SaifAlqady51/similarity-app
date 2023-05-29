@@ -1,3 +1,4 @@
+import { Cookie } from "next/font/google";
 
 export async function revokeApiKey() {
   const response = await fetch("/api/api-key/revoke", {
@@ -6,7 +7,7 @@ export async function revokeApiKey() {
       "Content-type": "application/json",
     },
     body:JSON.stringify({}),
-    credentials: 'same-origin',
+    credentials: "same-origin",
   });
   const data = (await response.json()) as { error?: string };
 

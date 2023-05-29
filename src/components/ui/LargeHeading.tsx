@@ -3,6 +3,10 @@ import { FC } from "react";
 import cn from "@/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
 
+// cva is a library that helps with adding variants to components without getting missy with tailwind
+// taking away all the worries about of class naming
+// https://cva.style/docs
+
 const headingVariants = cva(
   "text-black dark:text-white text-center lg:text-left font-extrabold leading-tight tracking-tighter",
   {
@@ -19,9 +23,14 @@ const headingVariants = cva(
   }
 );
 
+// creating LargeHeadingProps interface even for the headingVariants you can add prperites or not 
+
 interface LargeHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
     VariantProps<typeof headingVariants> {}
+
+// forwareRef is used to pass ref from wherever the component   
+// https://legacy.reactjs.org/docs/forwarding-refs.html 
 
 const LargeHeading: FC<LargeHeadingProps> = ({
   children,

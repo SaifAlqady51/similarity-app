@@ -5,7 +5,7 @@ export async function revokeApiKey() {
     headers: {
       "Content-type": "application/json",
     },
-    credentials: 'include'
+    credentials: 'same-origin'
   });
   const data = (await response.json()) as { error?: string };
 

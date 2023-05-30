@@ -1,5 +1,3 @@
-import { Cookie } from "next/font/google";
-
 export async function revokeApiKey() {
   const response = await fetch("/api/api-key/revoke", {
     method: "POST",

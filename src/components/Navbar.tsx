@@ -6,6 +6,7 @@ import SignOutButton from "./SignOutButton";
 import ThemeToggle from "./ThemeToggle";
 import { authOptions } from "@/lib/auth";
 
+
 const Navbar = async () => {
   const session = await getServerSession(authOptions);
 

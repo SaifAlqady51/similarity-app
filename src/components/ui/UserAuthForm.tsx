@@ -35,7 +35,7 @@ const UserAuthForm: FC<UserAuthFormProps> = ({ className, ...props }) => {
     >
       <Button
         isLoading={isLoading}
-        className="max-w-sm w-full bg-slate-200"
+        className="max-w-sm w-full bg-slate-200 px-10 py-5"
         onClick={loginWithGoogle}
         disabled={isLoading}
       >
@@ -72,7 +72,7 @@ const UserAuthForm: FC<UserAuthFormProps> = ({ className, ...props }) => {
             />
           </svg>
         )}
-        Google
+        Sign in with Google
       </Button>
     </div>
   );

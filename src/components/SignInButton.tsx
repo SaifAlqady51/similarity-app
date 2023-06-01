@@ -1,11 +1,11 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, HTMLAttributes, useState } from "react";
 import { Button } from "./ui/Button";
 import { signIn } from "next-auth/react";
 import { toast } from "./ui/Toast";
 
-interface SignInButtonProps {}
+interface SignInButtonProps extends HTMLAttributes<HTMLButtonElement> {}
 
 const SignInButton: FC<SignInButtonProps> = ({}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -26,10 +26,11 @@ const SignInButton: FC<SignInButtonProps> = ({}) => {
 
   return (
     <Button
+    className="p-5"
       onClick={signInWithGoogle}
       isLoading={isLoading}
     >
-      Sign In
+      Sign in with google
     </Button>
   );
 };

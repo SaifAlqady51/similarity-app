@@ -10,15 +10,16 @@ const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<RevokeApiData>
 ) => {
+
   try {
     const user = await getServerSession(req, res, authOptions).then(
       (res) => res?.user
     );
-
+    // return unauthenticated user if the the user is not signed in
     if (!user) {
       return res.status(401).json({ error: "Unauthorized", success: false });
     }
-
+    // check if the user has an api key
     const existingApiKey = await db.apiKey.findFirst({
       where: { userId: user.id, enabled: true },
     });
@@ -36,7 +37,7 @@ const handler = async (
         enabled: false,
       },
     });
-
+    
     return res.status(200).json({ error: null, success: true });
   } catch (error) {
     if (error instanceof z.ZodError) {

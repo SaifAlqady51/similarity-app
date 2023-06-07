@@ -26,14 +26,14 @@ const handler = async (
     const existeingApiKey = await db.apiKey.findFirst({
       where: { userId: user.id, enabled: true },
     });
-
+    // refuse to create new api key if the user already has one
     if (existeingApiKey) {
       return res.status(400).json({
         error: "You already have an API key",
         createdApiKey: null,
       });
     }
-
+    // create a new API key after checking if it already exists
     const createdApiKey = await db.apiKey.create({
       data: {
         userId: user.id,

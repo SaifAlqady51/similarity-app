@@ -4,11 +4,13 @@ import { NextResponse } from "next/server";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 
+// creating redis instance
 const redis = new Redis({
   url: process.env.REDIS_URL,
   token: process.env.REDIS_SECRET,
 });
 
+// putting limits for the api key requests
 const ratelimit = new Ratelimit({
   redis: redis,
   limiter: Ratelimit.slidingWindow(50, "1 h"),
